@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3>User List 
-                        <a href="" class="btn btn-sm btn-success float-right">Add New</a>
+                        <a href="{{ route('users.add') }}" class="btn btn-sm btn-success float-right">Add New</a>
                     </h3>
                 </div>
                 <div class="card-body">

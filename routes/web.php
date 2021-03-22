@@ -22,10 +22,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 Route::prefix('users')->group(function(){
-    Route::get('/view',[UserController::class,'view'])->name('view');
-    Route::get('/add',[UserController::class,'view'])->name('users.add');
-    Route::post('/store',[UserController::class,'view'])->name('users.store');
-    Route::get('/edit/{is}',[UserController::class,'view'])->name('users.edit');
-    Route::post('/update/{id}',[UserController::class,'view'])->name('users.update');
-    Route::get('/delete/{id}',[UserController::class,'view'])->name('users.delete');
+    Route::get('/view',[UserController::class,'view'])->name('users.view');
+    Route::get('/add',[UserController::class,'add'])->name('users.add');
+    Route::post('/store',[UserController::class,'store'])->name('users.store');
+    Route::get('/edit/{is}',[UserController::class,'edit'])->name('users.edit');
+    Route::post('/update/{id}',[UserController::class,'update'])->name('users.update');
+    Route::get('/delete/{id}',[UserController::class,'delete'])->name('users.delete');
 });

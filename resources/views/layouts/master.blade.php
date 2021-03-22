@@ -36,7 +36,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  @include('layouts/left-sidebar')
+  @include('layouts/leftSidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
