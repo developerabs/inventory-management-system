@@ -30,8 +30,8 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                    <a href="{{ route('users.edit',$item->id) }}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ route('users.delete',$item->id) }}" class="btn btn-sm btn-danger" id="delete"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr> 
                             @endforeach
@@ -39,10 +39,50 @@
                     </table>
                 </div>
             </div>
+            @if (session()->has('success'))
+                <script>
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: "{{ session()->get('success') }}",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                </script>
+            @endif
         </div>
     </div>
     <!-- ./col -->
 </div>
 <!-- /.row -->
 <!-- /.row (main row) -->
+@endsection
+@section('scripts')
+    
+<script>
+    $(function(){
+        $(document).on('click','#delete',function(e){
+            e.preventDefault();
+            var link = $(this).attr("href");
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location.href = link;
+                    Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                    )
+                }
+            });
+        });
+    });
+  </script>
 @endsection

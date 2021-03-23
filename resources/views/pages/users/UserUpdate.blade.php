@@ -14,7 +14,7 @@
                 @if ($errors->any())
                     <div class="alert alert-danger">Something want wrong !</div>
                 @endif
-                <form action="{{ route('users.store') }}" method="POST" role="form" id="quickForm">
+                <form action="{{ route('users.update',$editData->id) }}" method="POST"  id="quickForm2">
                     @csrf
                     <div class="card-body">
                         <div class="row">
@@ -33,36 +33,24 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name" placeholder="User name">
+                                    <input type="text" name="name" value="{{ $editData->name }}" class="form-control" id="name" placeholder="User name">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
-                                    <input type="text" name="phone" value="{{ old('phone') }}" class="form-control" id="phone" placeholder="User phone">
+                                    <input type="text" name="phone" value="{{ $editData->mobile }}" class="form-control" id="phone" placeholder="User phone">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="email" placeholder="User email">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="Password">Password</label>
-                                    <input type="password" name="password" value="{{ old('password') }}" class="form-control" id="Password" placeholder="User Password">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="Password2">Confirm Password</label>
-                                    <input type="password" name="password2" class="form-control" id="Password2" placeholder="Confirm Password">
+                                    <input type="email" name="email" value="{{ $editData->email }}" class="form-control" id="email" placeholder="User email">
                                 </div>
                             </div>
                         </div>
                         <!-- /.row -->
-                        <button class="btn btn-sm btn-primary" type="submit">Add New</button>
+                        <button class="btn btn-sm btn-primary" type="submit">Update</button>
                     </div>
                 </form>
             </div>
@@ -77,7 +65,7 @@
 <!-- /.row (main row) -->
 <script type="text/javascript">
     $(document).ready(function () {
-      $('#quickForm').validate({
+      $('#quickForm2').validate({
         rules: {
           role: {
             required: true,
