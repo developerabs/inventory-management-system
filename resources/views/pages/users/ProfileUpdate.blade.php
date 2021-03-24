@@ -7,33 +7,27 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3>Add User 
-                        <a href="{{ route('users.view') }}" class="btn btn-sm btn-success float-right">User List</a>
+                    <h3>Edit Profile 
+                        <a href="{{ route('profile.view') }}" class="btn btn-sm btn-success float-right">Profile</a>
                     </h3>
                 </div>
                 @if ($errors->any())
                     <div class="alert alert-danger">Something want wrong !</div>
                 @endif
-                <form action="{{ route('users.update',$editData->id) }}" method="POST"  id="quickForm2">
+                <form action="{{ route('profile.update') }}" method="POST"  id="quickForm3" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>User Role</label>
-                                    <select class="form-control select2" name="role" style="width: 100%;">
-                                        <option selected="selected" disabled>Select User Role</option>
-                                        <option value="Admin" {{ ($editData->role=="Admin")?"selected":"" }}>Admin</option>
-                                        <option value="User" {{ ($editData->role=="User")?"selected":"" }}>User</option>
-                                    </select>
-                                </div>
-                                <!-- /.form-group -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label for="name">Name</label>
                                     <input type="text" name="name" value="{{ $editData->name }}" class="form-control" id="name" placeholder="User name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" value="{{ $editData->email }}" class="form-control" id="email" placeholder="User email">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -44,10 +38,34 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" value="{{ $editData->email }}" class="form-control" id="email" placeholder="User email">
+                                    <label for="address">Address</label>
+                                    <input type="text" name="address" value="{{ $editData->address }}" class="form-control" id="phone" placeholder="User address">
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select class="form-control select2" name="gender" style="width: 100%;">
+                                        <option selected="selected" disabled>Select User Role</option>
+                                        <option value="Mail" {{ ($editData->gender=="Mail")?"selected":"" }}>Mail</option>
+                                        <option value="Femail" {{ ($editData->gender=="Femail")?"selected":"" }}>Femail</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="image">Image</label>
+                                    <input type="file" name="image" class="form-control" id="image">
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <img id="showImage" src="{{ (!empty($editData->image))?url('images/user/'.$editData->image):url('images/user/profile.jpg') }}" style="width: 100%; height="auto""  alt="Profile Image">
+                                </div>
+                            </div>
+                            <!-- /.col -->
                         </div>
                         <!-- /.row -->
                         <button class="btn btn-sm btn-primary" type="submit">Update</button>
@@ -65,11 +83,8 @@
 <!-- /.row (main row) -->
 <script type="text/javascript">
     $(document).ready(function () {
-      $('#quickForm2').validate({
+      $('#quickForm3').validate({
         rules: {
-          role: {
-            required: true,
-          },
           name: {
             required: true,
           },
@@ -80,15 +95,10 @@
             required: true,
             email: true,
           },
-          password: {
-            required: true,
-            minlength: 6
+          address: {
+            required: true
           },
-          password2: {
-            required: true,
-            equalTo: '#Password'
-          },
-          terms: {
+          gender: {
             required: true
           },
         },
@@ -120,5 +130,16 @@
         }
       });
     });
-    </script>  
+</script>  
+<script>
+    $(document).ready(function(){
+        $('#image').change(function(e){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('#showImage').attr('src',e.target.result);
+            }
+            reader.readAsDataURL(e.target.files['0']);
+        });
+    });
+</script>
 @endsection
