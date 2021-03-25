@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Auth;
 
@@ -52,5 +53,21 @@ class ProfileController extends Controller
         }
         $user->save();
         return redirect()->route('profile.view')->with('success','Profile updated success');
+    }
+    public function changePassword()
+    {
+        return view('pages.users.ChangePassword');
+    }
+    public function updatePassword(Request $request)
+    {
+        if (Auth::attempt(['id'=>Auth::user()->id,'password'=>$request->old_password])) {
+            $id = Auth::user()->id;
+            $user = User::find($id);
+            $user->password =  Hash::make($request->new_password);
+            $user->save();
+            return redirect()->route('profile.view')->with('success','Password changed success');
+        }else{
+            return redirect()->back()->with('error','Something went wrong!');;
+        }
     }
 }
