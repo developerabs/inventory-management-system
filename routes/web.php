@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,5 +45,13 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/edit/{id}',[SupplierController::class,'edit'])->name('suppliers.edit');
         Route::post('/update/{id}',[SupplierController::class,'update'])->name('suppliers.update');
         Route::get('/delete/{id}',[SupplierController::class,'delete'])->name('suppliers.delete');
+    });
+    Route::prefix('customers')->group(function(){
+        Route::get('/view',[CustomerController::class,'view'])->name('customers.view');
+        Route::get('/add',[CustomerController::class,'add'])->name('customers.add');
+        Route::post('/store',[CustomerController::class,'store'])->name('customers.store');
+        Route::get('/edit/{id}',[CustomerController::class,'edit'])->name('customers.edit');
+        Route::post('/update/{id}',[CustomerController::class,'update'])->name('customers.update');
+        Route::get('/delete/{id}',[CustomerController::class,'delete'])->name('customers.delete');
     });
 });

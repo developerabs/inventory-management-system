@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Models\SupplierModel;
+use Auth;
 
 class SupplierController extends Controller
 {
@@ -30,6 +31,7 @@ class SupplierController extends Controller
         $supplier->mobile_no = $request->mobile_no;
         $supplier->email = $request->email;
         $supplier->address = $request->address;
+        $supplier->created_by = Auth::user()->id;
         $supplier->save();
         return redirect()->route('suppliers.view')->with('success','New Supplier added success');
     }
@@ -55,6 +57,7 @@ class SupplierController extends Controller
         $supplier->mobile_no = $request->mobile_no;
         $supplier->email = $request->email;
         $supplier->address = $request->address;
+        $supplier->updated_by =  Auth::user()->id;
         $supplier->save();
         return redirect()->route('suppliers.view')->with('success','Supplier edit success');
     }

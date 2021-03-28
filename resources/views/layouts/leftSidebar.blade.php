@@ -86,6 +86,29 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview {{ ($prefix == '/customers')?'menu-open':'' }}">
+            <a href="" class="nav-link {{ ($prefix == '/customers')?'active':'' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Customers 
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('customers.view') }}" class="nav-link {{ ($route == 'customers.view')?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Customets</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('customers.add') }}" class="nav-link {{ ($route == 'customers.add')?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Customers</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
