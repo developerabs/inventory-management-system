@@ -62,7 +62,7 @@
                             <!-- /.col -->
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <img id="showImage" src="{{ (!empty($editData->image))?url('images/user/'.$editData->image):url('images/user/profile.jpg') }}" style="width: 100%; height="auto""  alt="Profile Image">
+                                    <img id="showImage" src="{{ (!empty($editData->image))?url('images/user/'.$editData->image):url('images/user/profile.jpg') }}" style="width: 100%; height:auto"  alt="Profile Image">
                                 </div>
                             </div>
                             <!-- /.col -->

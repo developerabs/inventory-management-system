@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +36,13 @@ Route::group(['middleware'=>'auth'],function(){
         Route::post('/update',[ProfileController::class,'update'])->name('profile.update');
         Route::get('/change-password',[ProfileController::class,'changePassword'])->name('profile.change.password');
         Route::post('/updata-password',[ProfileController::class,'updatePassword'])->name('profile.update.password');
+    });
+    Route::prefix('suppliers')->group(function(){
+        Route::get('/view',[SupplierController::class,'view'])->name('suppliers.view');
+        Route::get('/add',[SupplierController::class,'add'])->name('suppliers.add');
+        Route::post('/store',[SupplierController::class,'store'])->name('suppliers.store');
+        Route::get('/edit/{id}',[SupplierController::class,'edit'])->name('suppliers.edit');
+        Route::post('/update/{id}',[SupplierController::class,'update'])->name('suppliers.update');
+        Route::get('/delete/{id}',[SupplierController::class,'delete'])->name('suppliers.delete');
     });
 });

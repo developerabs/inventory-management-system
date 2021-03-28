@@ -16,7 +16,7 @@
                             width: 100px;
                             height:104px"
                            src="{{ (!empty($user->image))?url('images/user/'.$user->image):url('images/user/profile.jpg') }}"
-                           alt="User profile picture">
+                           alt="">
                     </div>
     
                     <h3 class="profile-username text-center">{{ $user->name }}</h3>

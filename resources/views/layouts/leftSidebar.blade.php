@@ -63,6 +63,29 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview {{ ($prefix == '/suppliers')?'menu-open':'' }}">
+            <a href="" class="nav-link {{ ($prefix == '/suppliers')?'active':'' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Manage Supplier
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('suppliers.view') }}" class="nav-link {{ ($route == 'suppliers.view')?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Supplier</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('suppliers.add') }}" class="nav-link {{ ($route == 'suppliers.add')?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Supplier</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
