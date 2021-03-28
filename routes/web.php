@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\UnitesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +54,13 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/edit/{id}',[CustomerController::class,'edit'])->name('customers.edit');
         Route::post('/update/{id}',[CustomerController::class,'update'])->name('customers.update');
         Route::get('/delete/{id}',[CustomerController::class,'delete'])->name('customers.delete');
+    });
+    Route::prefix('unites')->group(function(){
+        Route::get('/view',[UnitesController::class,'view'])->name('unites.view');
+        Route::get('/add',[UnitesController::class,'add'])->name('unites.add');
+        Route::post('/store',[UnitesController::class,'store'])->name('unites.store');
+        Route::get('/edit/{id}',[UnitesController::class,'edit'])->name('unites.edit');
+        Route::post('/update/{id}',[UnitesController::class,'update'])->name('unites.update');
+        Route::get('/delete/{id}',[UnitesController::class,'delete'])->name('unites.delete');
     });
 });

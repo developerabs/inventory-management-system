@@ -109,6 +109,29 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview {{ ($prefix == '/unites')?'menu-open':'' }}">
+            <a href="" class="nav-link {{ ($prefix == '/unites')?'active':'' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Unites 
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('unites.view') }}" class="nav-link {{ ($route == 'unites.view')?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Unites</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('unites.add') }}" class="nav-link {{ ($route == 'unites.add')?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Unites</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
