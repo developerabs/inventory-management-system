@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UnitesController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,5 +63,13 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/edit/{id}',[UnitesController::class,'edit'])->name('unites.edit');
         Route::post('/update/{id}',[UnitesController::class,'update'])->name('unites.update');
         Route::get('/delete/{id}',[UnitesController::class,'delete'])->name('unites.delete');
+    });
+    Route::prefix('categorys')->group(function(){
+        Route::get('/view',[CategoryController::class,'view'])->name('categorys.view');
+        Route::get('/add',[CategoryController::class,'add'])->name('categorys.add');
+        Route::post('/store',[CategoryController::class,'store'])->name('categorys.store');
+        Route::get('/edit/{id}',[CategoryController::class,'edit'])->name('categorys.edit');
+        Route::post('/update/{id}',[CategoryController::class,'update'])->name('categorys.update');
+        Route::get('/delete/{id}',[CategoryController::class,'delete'])->name('categorys.delete');
     });
 });

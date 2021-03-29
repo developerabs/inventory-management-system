@@ -132,6 +132,29 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview {{ ($prefix == '/categorys')?'menu-open':'' }}">
+            <a href="" class="nav-link {{ ($prefix == '/categorys')?'active':'' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Categorys 
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('categorys.view') }}" class="nav-link {{ ($route == 'categorys.view')?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Categorys</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('categorys.add') }}" class="nav-link {{ ($route == 'categorys.add')?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Categorys</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
