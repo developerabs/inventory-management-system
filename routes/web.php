@@ -7,6 +7,7 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UnitesController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,5 +72,13 @@ Route::group(['middleware'=>'auth'],function(){
         Route::get('/edit/{id}',[CategoryController::class,'edit'])->name('categorys.edit');
         Route::post('/update/{id}',[CategoryController::class,'update'])->name('categorys.update');
         Route::get('/delete/{id}',[CategoryController::class,'delete'])->name('categorys.delete');
+    });
+    Route::prefix('products')->group(function(){
+        Route::get('/view',[ProductsController::class,'view'])->name('products.view');
+        Route::get('/add',[ProductsController::class,'add'])->name('products.add');
+        Route::post('/store',[ProductsController::class,'store'])->name('products.store');
+        Route::get('/edit/{id}',[ProductsController::class,'edit'])->name('products.edit');
+        Route::post('/update/{id}',[ProductsController::class,'update'])->name('products.update');
+        Route::get('/delete/{id}',[ProductsController::class,'delete'])->name('products.delete');
     });
 });

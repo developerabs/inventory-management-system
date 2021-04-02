@@ -17,7 +17,7 @@
                 <form action="{{ route('suppliers.update',$editData->id) }}" method="POST"  id="quickForm2">
                     @csrf
                     <div class="card-body">
-                        <div class="row">
+                      <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name">Supplier Name</label>
@@ -35,7 +35,6 @@
                                     <label for="email">Supplier Email</label>
                                     <input type="email" name="email" value="{{ $editData->email }}" class="form-control" id="email" placeholder="Supplier email">
                                 </div>
-                            </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
