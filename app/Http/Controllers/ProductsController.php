@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\Models\ProductsModel;
 use App\Models\SupplierModel;
@@ -72,6 +70,6 @@ class ProductsController extends Controller
     {
         $supplier = ProductsModel::find($id);
         $supplier->delete();
-        return redirect()->route('products.view')->with('success','Products delete success');
+        return redirect()->route('products.view')->with('success','Prduct delete success');
     }
 }

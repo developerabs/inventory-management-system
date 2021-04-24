@@ -8,6 +8,8 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UnitesController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\DefaultController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,4 +83,14 @@ Route::group(['middleware'=>'auth'],function(){
         Route::post('/update/{id}',[ProductsController::class,'update'])->name('products.update');
         Route::get('/delete/{id}',[ProductsController::class,'delete'])->name('products.delete');
     });
+    Route::prefix('purchase')->group(function(){
+        Route::get('/view',[PurchaseController::class,'view'])->name('purchase.view');
+        Route::get('/add',[PurchaseController::class,'add'])->name('purchase.add');
+        Route::post('/store',[PurchaseController::class,'store'])->name('purchase.store');
+        Route::get('/approve/list',[PurchaseController::class,'approveList'])->name('purchase.approve.list');
+        Route::get('/approve/{id}',[PurchaseController::class,'approve'])->name('purchase.approve');
+        Route::get('/delete/{id}',[PurchaseController::class,'delete'])->name('purchase.delete');
+    });
+    Route::get('/getCategory',[DefaultController::class,'getCategory'])->name('get-category');
+    Route::get('/getProduct',[DefaultController::class,'getProduct'])->name('get-product');
 });

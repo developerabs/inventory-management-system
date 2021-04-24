@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.css') }}">
+  <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -88,6 +89,7 @@
 <script src="{{ asset('assets/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 <script type="text/javascripte">
   $.widget.bridge('uibutton', $.ui.button)
 </script>
@@ -120,6 +122,7 @@
 <!-- jquery-validation -->
 <script src="{{ asset('assets/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+<script src="{{ asset('assets/dist/js/handler.min.js') }}"></script>
 @yield('scripts')
 <script>
   $(function () {

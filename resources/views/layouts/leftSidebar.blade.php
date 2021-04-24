@@ -20,7 +20,7 @@
             <a href="" class="nav-link {{ ($prefix == '/users')?'active':'' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Manage User
+                User
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -44,7 +44,7 @@
             <a href="" class="nav-link {{ ($prefix == '/profile')?'active':'' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Manage Profile
+                Profile
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -67,7 +67,7 @@
             <a href="" class="nav-link {{ ($prefix == '/suppliers')?'active':'' }}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Manage Supplier
+                Supplier
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -174,6 +174,35 @@
                 <a href="{{ route('products.add') }}" class="nav-link {{ ($route == 'products.add')?'active':'' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Products</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview {{ ($prefix == '/purchase')?'menu-open':'' }}">
+            <a href="" class="nav-link {{ ($prefix == '/purchase')?'active':'' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Purchase 
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('purchase.add') }}" class="nav-link {{ ($route == 'purchase.add')?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Purchase</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('purchase.view') }}" class="nav-link {{ ($route == 'purchase.view')?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Purchase</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('purchase.approve.list') }}" class="nav-link {{ ($route == 'purchase.approve.list')?'active':'' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Approve Purchase</p>
                 </a>
               </li>
             </ul>
