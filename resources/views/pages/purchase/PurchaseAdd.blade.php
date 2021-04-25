@@ -31,7 +31,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Supplier Name</label>
-                                <select class="form-control select2" name="supplier_id" id="supplier_id" style="width: 100%;">
+                                <select class="form-control select2" name="supplier_id" id="supplier_id" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;">
                                     <option selected value="" disabled>Select Supplier Name</option>
                                     @foreach ($supplier as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -42,7 +42,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Category Name</label>
-                                <select class="form-control select2" name="category_id" id="category_id" style="width: 100%;">
+                                <select class="form-control select2" name="category_id" id="category_id" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;">
                                     <option selected value="" disabled>Select Category Name</option>
                                 </select>
                             </div>
@@ -50,7 +50,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">Product Name</label>
-                                <select class="form-control select2" name="product_id" id="product_id" style="width: 100%;">
+                                <select class="form-control select2" name="product_id" id="product_id" data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;">
                                     <option selected value="" disabled>Select Product Name</option>
                                 </select>
                             </div>
